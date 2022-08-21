@@ -56,9 +56,5 @@ export default {
   text-transform: uppercase;
   color: #9ea1ae;
 }
-.header-sorting-item:hover {
-  cursor: pointer;
-  opacity: 0.5;
-}
 </style>
 
