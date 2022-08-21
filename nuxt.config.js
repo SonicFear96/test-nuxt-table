@@ -1,8 +1,4 @@
 export default {
-  target: 'static',
-  router: {
-    base: '/test-nuxt-table/'
-  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'test-nuxt-table',
