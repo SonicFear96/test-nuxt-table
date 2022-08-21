@@ -28,5 +28,20 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  min-height: 50px;
+  align-items: center;
+  background-color: rgba(234, 210, 168, 0.2);
+  border-radius: 8px;
+  padding: 0 20px;
+}
+.card-item__id {
+  font-weight: bold;
+  color: grey;
+}
+.card-item__name {
+  color: grey;
+}
+.card-item__email {
+  color: grey;
 }
 </style>

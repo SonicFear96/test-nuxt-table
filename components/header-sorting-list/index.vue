@@ -12,17 +12,22 @@
 
 export default {
   name: 'header-sorting-list',
+  // components: [
+  // ],
   data () {
     return {
       sortingList: [
         {
-          title: 'id'
+          title: 'id',
+          sort: true
         },
         {
-          title: 'name'
+          title: 'name',
+          sort: false
         },
         {
-          title: 'email'
+          title: 'email',
+          sort: false
         }
       ]
     }
@@ -42,13 +47,18 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 20px;
 }
 .header-sorting-item {
-  font-size: 10px;
+  font-size: 18px;
   line-height: 14px;
   font-weight: bold;
   text-transform: uppercase;
   color: #9ea1ae;
+}
+.header-sorting-item:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 </style>
 

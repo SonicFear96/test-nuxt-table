@@ -4,8 +4,8 @@ export const state = () => ({
 })
 
 export const actions = {
-  async getComments({commit}) {
-    const comments = await this.$axios.$get('https://jsonplaceholder.typicode.com/comments?_limit=10')
+  async getComments({commit}, start) {
+    const comments = await this.$axios.$get(`https://jsonplaceholder.typicode.com/comments?_start=${start}&_limit=10`)
     commit('SET_COMMENTS', comments)
   },
   async getComment({commit}, id) {
