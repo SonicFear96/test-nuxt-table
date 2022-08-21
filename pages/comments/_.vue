@@ -1,12 +1,22 @@
 <template>
   <div class="comment-page-inner">
-
+    <h2>{{data.name}}</h2>
+    <p>{{data.email}}</p>
+    <p>{{data.body}}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'comment-page-inner'
+  name: 'comment-page-inner',
+  async asyncData({store, params}) {
+    let data = []
+    await store.dispatch('getComment', params.pathMatch)
+    data = store.getters['comment']
+    return {
+      data
+    }
+  },
 }
 </script>
 

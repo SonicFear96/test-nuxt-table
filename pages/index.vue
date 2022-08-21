@@ -3,7 +3,7 @@
     <div class="comment-list__wrapper wrapper">
       <headerSortingList/>
       <ul class="comment__card-list">
-        <li class="comment__card-item" v-for="item of 5" :key='item'>
+        <li class="comment__card-item" @click="openComment(item)" v-for="item of comments" :key='item.id'>
           <cardItem :data="item"/>
         </li>
       </ul>
@@ -19,6 +19,24 @@ export default {
   components: {
     headerSortingList,
     cardItem
+  },
+  data () {
+    return {
+      comments: []
+    }
+  },
+  async asyncData({store}) {
+    let comments = []
+    await store.dispatch('getComments')
+    comments = store.getters['comments']
+    return {
+      comments
+    }
+  },
+  methods: {
+    openComment (data) {
+      this.$router.push(`comments/${data.id}`)
+    }
   }
 }
 </script>

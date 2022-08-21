@@ -1,13 +1,13 @@
 <template>
   <div class="card-item">
     <div class="card-item__id">
-      id {{data}}
+      {{data.id}}
     </div>
     <div class="card-item__name">
-      name
+      {{data.name}}
     </div>
     <div class="card-item__email">
-      email
+      {{data.email}}
     </div>
   </div>
 </template>
