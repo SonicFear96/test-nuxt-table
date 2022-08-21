@@ -16,7 +16,7 @@ export default {
     ],
     target: 'static',
     router: {
-      base: 'test-nuxt-table'
+      base: '/test-nuxt-table/'
     }
   },
 
