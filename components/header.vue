@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header">
+  <header class="main-header wrapper">
     <nav class="navigation">
       <ul class="nav-list">
         <li>

@@ -1,13 +1,13 @@
 <template>
   <div class="main-page">
     <div class="comment-list__wrapper wrapper">
-      <headerSortingList/>
+      <headerSortingList @sort="sortData"/>
       <ul class="comment__card-list">
         <li class="comment__card-item" @click="openComment(item)" v-for="item of comments" :key='item.id'>
           <cardItem :data="item"/>
         </li>
       </ul>
-      <div>
+      <div class="button-wrapper">
         <button :disabled="start === 0" @click.prevent="getComments(more = false)" class="button-pagination">prev</button>
         <button @click.prevent="getComments(more = true)" class="button-pagination">next</button>
       </div>
@@ -48,12 +48,21 @@ export default {
       more ? this.start += 10 : this.start -= 10
       await this.$store.dispatch('getComments', this.start)
       this.comments = this.$store.getters['comments']
+    },
+    sortData () {
+      // убывание
+      this.comments = this.comments.sort((a, b) => b - a)
+      // возрастание
+      // this.comments = this.comments.sort(a, b) => a - b)
     }
   }
 }
 </script>
 
 <style scoped>
+.main-page {
+  margin-bottom: 60px;
+}
 .comment-list__wrapper {
   margin-top: 50px;
 }
@@ -67,5 +76,19 @@ export default {
 .comment__card-item:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+.button-wrapper {
+  margin-top: 40px;
+}
+.button-pagination {
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.button-pagination:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 </style>
