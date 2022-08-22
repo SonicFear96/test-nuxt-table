@@ -18,7 +18,6 @@
 <script>
 import headerSortingList from '@/components/header-sorting-list/'
 import cardItem from '@/components/sorting-card/'
-import { mapMutations } from 'vuex'
 
 export default {
   name: 'index-page',
