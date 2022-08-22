@@ -34,7 +34,7 @@ export default {
   flex-direction: row;
 }
 .nav-link {
-  color: blue;
+  color: gray;
   font-family: Arial;
   font-size: 14px;
   font-weight: bold;

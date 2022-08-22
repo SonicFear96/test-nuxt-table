@@ -1,5 +1,5 @@
 <template>
-  <div class="comment-page-inner">
+  <div class="comment-page-inner wrapper">
     <h2>{{data.name}}</h2>
     <p>{{data.email}}</p>
     <p>{{data.body}}</p>
@@ -22,6 +22,10 @@ export default {
 
 <style>
 .comment-page-inner {
- /* */
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 </style>

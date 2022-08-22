@@ -65,5 +65,10 @@ export default {
   cursor: pointer;
   opacity: 0.5;
 }
+@media (max-width: 575px) {
+  .header-sorting-list__wrapper {
+    display: none;
+  }
+}
 </style>
 

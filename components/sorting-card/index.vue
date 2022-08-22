@@ -44,4 +44,10 @@ export default {
 .card-item__email {
   color: grey;
 }
+@media (max-width: 575px) {
+  .card-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 </style>
