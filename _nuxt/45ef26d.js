@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{309:function(t,n,w){"use strict";w.r(n);var r=w(31),component=Object(r.a)({},(function(){var t=this._self._c;return t("svg",{attrs:{xmlns:"http://www.w3.org/2000/svg",width:"21",height:"9"}},[t("path",{attrs:{d:"m6.5,4 4-4 4,4zm0,1 4,4 4-4z"}})])}),[],!1,null,null,null);n.default=component.exports}}]);
