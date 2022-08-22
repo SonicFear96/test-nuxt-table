@@ -18,6 +18,7 @@
 <script>
 import headerSortingList from '@/components/header-sorting-list/'
 import cardItem from '@/components/sorting-card/'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'index-page',
@@ -31,13 +32,11 @@ export default {
       start: 0
     }
   },
-  async asyncData({store}) {
-    let comments = []
+  async asyncData({$axios}) {
     const start = 0
-    await store.dispatch('getComments', start)
-    comments = store.getters['comments']
+    const comments = await $axios.$get(`https://jsonplaceholder.typicode.com/comments?_start=${start}&_limit=10`)
     return {
-      comments,
+      comments
     }
   },
   methods: {
@@ -47,11 +46,13 @@ export default {
     async getComments (more) {
       more ? this.start += 10 : this.start -= 10
       await this.$store.dispatch('getComments', this.start)
-      this.comments = this.$store.getters['comments']
+      this.comments = [...this.$store.getters['comments']]
     },
     sortData () {
-      // убывание
+      console.log('click')
       this.comments = this.comments.sort((a, b) => b - a)
+      // убывание
+      // this.comments = this.comments.sort((a, b) => b - a)
       // возрастание
       // this.comments = this.comments.sort(a, b) => a - b)
     }
