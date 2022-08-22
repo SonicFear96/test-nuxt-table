@@ -16,9 +16,10 @@ export default {
     ],
 
   },
-  generate: {subFolders: true},
-
-  router: {base: '/'},
+  target: 'static',
+  router: {
+    base: '/test-nuxt-table/'
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
