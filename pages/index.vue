@@ -29,14 +29,17 @@ export default {
   data () {
     return {
       comments: [],
-      start: 0
+      start: 0,
+      isSorting: false
     }
   },
   async asyncData({$axios}) {
     const start = 0
+    const isSorting = false
     const comments = await $axios.$get(`https://jsonplaceholder.typicode.com/comments?_start=${start}&_limit=10`)
     return {
-      comments
+      comments,
+      isSorting
     }
   },
   methods: {
@@ -47,14 +50,11 @@ export default {
       more ? this.start += 10 : this.start -= 10
       await this.$store.dispatch('getComments', this.start)
       this.comments = [...this.$store.getters['comments']]
+      this.isSorting = false
     },
     sortData () {
-      console.log('click')
-      this.comments = this.comments.sort((a, b) => b - a)
-      // убывание
-      // this.comments = this.comments.sort((a, b) => b - a)
-      // возрастание
-      // this.comments = this.comments.sort(a, b) => a - b)
+      this.isSorting ? this.comments = [...this.comments.sort((a, b) => a.id - b.id)] : this.comments = [...this.comments.sort((a, b) => b.id - a.id)]
+      this.isSorting = !this.isSorting
     }
   }
 }
